@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Mart Təbriki</title>
+    
+    <!-- Google Fonts əlavə edirik -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif; /* Ümumi yazılar üçün */
+            text-align: center;
+            background-color: #ffe6f2;
+            color: #d63384;
+            padding: 50px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive; /* Başlıq üçün fərqli font */
+            font-size: 3em;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        p {
+            font-size: 1.5em;
+            line-height: 1.5;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        .rose {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('rose.png'); /* Gül şəkli */
+            background-size: cover;
+            opacity: 0.9;
+            animation: fall 6s linear infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-150px) rotate(0deg); /* Güllərin yuxarıdan başlanması üçün daha yüksək təyinat */
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg); /* Güllər ekranın altına qədər düşəcək */
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>8 Mart Beynəlxalq Qadınlar Günün Mübarək!☺️</h1>
+    <p>Bu gözəl gündə sənə xoşbəxtlik, uğur və sevinc dolu anlar arzulayıram👻<br>
+       Həm kursda, həm də imtahanlarınızda uğurlar diləyirəm🌈</p>
+
+    <!-- Musiqi əlavə edilir -->
+    <audio autoplay loop>
+        <source src="musiqi.mp3" type="audio/mpeg">
+        Sizin brauzeriniz bu audio formatını dəstəkləmir.
+    </audio>
+
+    <!-- Şəkil əlavə edilir -->
+    <img src="8march.png" alt="8 Mart Təbriki" style="max-width: 100%; height: auto; margin-top: 20px; border-radius: 10px;">
+
+    <script>
+        function createRose() {
+            let rose = document.createElement("div");
+            rose.className = "rose";
+            rose.style.left = Math.random() * window.innerWidth + "px";
+            rose.style.animationDuration = (Math.random() * 4 + 3) + "s";
+            document.body.appendChild(rose);
+            setTimeout(() => rose.remove(), 7000);
+        }
+        
+        setInterval(createRose, 500);
+    </script>
+</body>
+</html>
